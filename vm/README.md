@@ -13,14 +13,22 @@ su -
 ```
 ```
 usermod -a -G sudo jetson
+nano /etc/sudoers
 ```
+add the following:
+```
+jetson ALL=(ALL:ALL) ALL
+```
+[CTRL]+[x] to write out. [Y] to confirm.
+
+Close the terminal and open a new one not in sudo mode.
 ## If reinstalling on the jetson baremetal, you can use this:
 ```
 ### can be used for easy QoL items such as browswer and ide of choice.
 # wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
 ```
 
-## On the vm you will not by default have access to root
+## The following can be exectuted from a terminal to install the dependencies for ROS 2 / Nav 2
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
