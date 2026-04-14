@@ -1,9 +1,9 @@
 
-### Install Oracle Virtual Box
+## Install Oracle Virtual Box
 When configuring use ubuntu 22.04, ensure to set user name and vm name to jetson. 
 Check the box for Install guest additions to be able to enable copy and paste functionality.
 
-### For virtual machine we need this to access sudo. 
+## For virtual machine we need this to access sudo. 
 This is not needed on Jetson installations as sudo is available by default. After setting up the oracle vm with ubuntu 22.04, decline the update to 24.04. Open terminal and enable sudo:
 su -
 nano /etc/sudoers
@@ -14,13 +14,13 @@ su -
 ```
 usermod -a -G sudo jetson
 ```
-### If reinstalling on the jetson baremetal, you can use this:
+## If reinstalling on the jetson baremetal, you can use this:
 ```
 ### can be used for easy QoL items such as browswer and ide of choice.
 # wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
 ```
 
-### On the vm you will not by default have access to root
+## On the vm you will not by default have access to root
 ```
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -98,4 +98,4 @@ ros2 topic list
 ros2 pkg list
 ros2 run rviz2 rviz2
 ```
-### This should give a good starting place for working with the ROS 2 / Nav 2 Stack.
+## This should give a good starting place for working with the ROS 2 / Nav 2 Stack.
