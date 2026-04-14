@@ -86,18 +86,18 @@ sudo apt-get install ~nros-humble-rqt* -y
 sudo apt-get install ignition-fortress -y
 sudo apt-get update
 sudo apt-get install curl lsb-release gnupg
-rm -rf /var/lib/apt/lists/* -y
-apt-get update && apt-get upgrade -y
-apt autoremove -y
-echo "source /opt/ros/humble/setup.bash" >> /etc/bash.bashrc
+sudo rm -rf /var/lib/apt/lists/*
+sudo apt-get update && apt-get upgrade -y
+sudo apt autoremove -y
+sudo echo "source /opt/ros/humble/setup.bash" >> /etc/bash.bashrc
 sudo rosdep fix-permissions -y
 rosdep update -y
-apt install ros-humble-navigation2 -y
-apt install ros-humble-nav2-bringup -y
-apt update -y
-apt-get install ros-humble-sick-scan-xd -y  
-apt update -y
-apt-get install nano -y
+sudo apt install ros-humble-navigation2 -y
+sudo apt install ros-humble-nav2-bringup -y
+sudo apt update -y
+sudo apt-get install ros-humble-sick-scan-xd -y  
+sudo apt update -y
+sudo apt-get install nano -y
 
 # Close terminal and open a new one. This time not as root. 
 # ROS2 humble should be sourced. We can test a few commands.
