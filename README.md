@@ -32,3 +32,5 @@ For Motor Control Info: [Motor Control](./docs/motors.MD)
 Alternatively if the team wants to test on a ROS2 Environment without being on campus:
 
 For Test Bench: [Dockerized Snow Plow](./docker/README.MD)
+
+For Test Bench: [Oracle Virtual Machine Snow Plow](./vm/README.MD)
