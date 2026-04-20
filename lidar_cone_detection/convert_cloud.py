@@ -67,10 +67,13 @@ class PointCloudSubscriber(Node):
         for f in filtered_points:
             x, y = f  # unpack tuple
 
+            # Calculate distance from lidar and angle from x axis
             distance = np.sqrt(x**2 + y**2)
             angle = np.arctan2(y, x)
 
             cone_points.append((x, y, distance, angle))
+
+        self.cone_points = cone_points
 
 
 
