@@ -47,6 +47,33 @@ class PointCloudSubscriber(Node):
             z_coords = points_array[:, 2] if points_array.shape[1] > 2 else np.zeros(len(points_array))
 
 
+        #Search all coords to find cones
+        filtered_points = []
+        prev_in_range = False
+
+        for i in range(len(x_coords)):
+            in_range = (0 < y_coords[i] < 6.5) and (0 < x_coords[i] < 10)
+
+            if in_range and not prev_in_range:
+                filtered_points.append((x_coords[i], y_coords[i]))
+
+            prev_in_range = in_range
+
+        print("Filtered points:")
+        print(filtered_points)
+
+        cone_points = []
+
+        for f in filtered_points:
+            x, y = f  # unpack tuple
+
+            distance = np.sqrt(x**2 + y**2)
+            angle = np.arctan2(y, x)
+
+            cone_points.append((x, y, distance, angle))
+
+
+
 
         # self.get_logger().info(f"Received {len(x_coords)} points")
         # self.get_logger().info(f"First point: x={x_coords}, y={y_coords}")
