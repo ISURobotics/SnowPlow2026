@@ -96,7 +96,7 @@ if __name__ == "__main__":
     threads = []
 
     for config in SERIAL_PORTS:
-        thread = threading.Thread(target=read_from_port, args=(config,))
+        thread = threaded.Thread(target=read_from_port, args=(config,))
         thread.daemon = True  # Allows the main program to exit even if threads are running
         threads.append(thread)
         thread.start()
