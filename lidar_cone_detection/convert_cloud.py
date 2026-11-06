@@ -49,15 +49,30 @@ class PointCloudSubscriber(Node):
 
         #Search all coords to find cones
         filtered_points = []
-        prev_in_range = False
+        angle = 0
+        filtered_angles = []
+        gap = 0.1 # in meters, used here to ensure there is no overlapping oblects in depth
+        prev_point = None
 
         for i in range(len(x_coords)):
-            in_range = (0 < y_coords[i] < 6.5) and (0 < x_coords[i] < 10)
+            
+            in_range = (0 < y_coords[i] < 6.80) and (-8.05 < x_coords[i] < 8.05) #X cords are to the left/ right of the (neg = left, pos = right) and y cord = how far forwards (not distence away but forwards)
 
-            if in_range and not prev_in_range:
+            if not in_range: 
+                prev_point = None
+                continue
+
+            point = y_coords
+
+            if prev_point is None or point - prev_point > gap or point - prev_point > gap:
                 filtered_points.append((x_coords[i], y_coords[i]))
 
-            prev_in_range = in_range
+            else: 
+                continue
+
+            prev_point = point
+
+            
 
         print("Filtered points:")
         print(filtered_points)
@@ -132,9 +147,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
-
-
-
-	
-
