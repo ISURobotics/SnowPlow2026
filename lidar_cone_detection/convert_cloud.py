@@ -67,7 +67,7 @@ class PointCloudSubscriber(Node):
             if prev_point is None or point - prev_point > gap or point - prev_point > gap:
                 filtered_points.append((x_coords[i], y_coords[i]))
 
-            else 
+            else: 
                 continue
 
             prev_point = point
